@@ -16,7 +16,7 @@ class KPrompt(Prompt):
         """
         assert self.choices is not None
         clean = True
-        selected = re.split(",\s?", value.strip())
+        selected = re.split(r",\s?", value.strip())
         for v in selected:
             if v.strip() not in self.choices:
                 clean = False
