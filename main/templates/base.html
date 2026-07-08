@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Days+One|Michroma|Montserrat|Quicksand|Rajdhani&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="client-document">
+        <div id="client-document-status" class="client-doc-header">
+            <div class="logo">
+                <div class="image">
+                    <svg width="64.64mm" height="36.557mm" version="1.1" viewBox="0 0 64.64 36.557" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-50.447 -62.693)"><path d="m115.09 78.066c0 1.4717-0.1819 2.7864-0.5457 3.9439-0.3638 1.1576-0.85989 2.1828-1.4883 3.0758-0.61185 0.87643-1.3229 1.6288-2.1332 2.2572s-1.6619 1.141-2.5549 1.5379c-0.87643 0.39688-1.7694 0.68626-2.6789 0.86816-0.89297 0.1819-1.7363 0.27285-2.5301 0.27285h-14.585v-6.4492h14.585c0.82682-0.06615 1.571-0.23151 2.2324-0.49609 0.67799-0.28112 1.2568-0.65319 1.7363-1.1162 0.47955-0.46302 0.85162-1.017 1.1162-1.6619 0.26458-0.66146 0.39687-1.4056 0.39687-2.2324v-2.927c-0.0827-0.81029-0.25631-1.5544-0.5209-2.2324-0.26458-0.678-0.62838-1.2568-1.0914-1.7363-0.44649-0.47956-0.99219-0.85163-1.6371-1.1162-0.64492-0.28112-1.3891-0.42168-2.2324-0.42168h-14.536c-0.85989 0-1.5131 0.22324-1.9596 0.66973-0.44648 0.44648-0.66973 1.0914-0.66973 1.9348v20.097l-6.4492-0.19161v-19.906c0-1.6536 0.29766-3.0592 0.89297-4.2168 0.61185-1.1576 1.3643-2.0919 2.2572-2.8029 0.9095-0.71107 1.8934-1.2237 2.9518-1.5379 1.0583-0.33073 2.034-0.49609 2.927-0.49609h14.585c1.4552 0 2.7616 0.19017 3.9191 0.57051 1.1576 0.3638 2.1745 0.8599 3.051 1.4883 0.89297 0.61185 1.6454 1.3229 2.2572 2.1332 0.62839 0.81029 1.141 1.6619 1.5379 2.5549 0.41341 0.87643 0.71107 1.7694 0.89297 2.6789 0.1819 0.89297 0.27285 1.7363 0.27285 2.5301zm-29.095 17.934c0 0.46302-0.09095 0.89297-0.27285 1.2898-0.16536 0.39688-0.39688 0.74414-0.69453 1.0418-0.28112 0.28112-0.62012 0.50436-1.017 0.66973s-0.81856 0.24805-1.265 0.24805c-0.39688 0-0.80202-0.07441-1.2154-0.22324-0.39688-0.14883-0.75241-0.38861-1.0666-0.71934l-23.564-24.606v25.053h-6.4492v-32.817c0-0.66146 0.1819-1.2568 0.5457-1.7859 0.38034-0.5457 0.8599-0.95085 1.4387-1.2154 0.61185-0.24805 1.2402-0.30592 1.8852-0.17363 0.64492 0.11576 1.1989 0.41341 1.6619 0.89297l23.564 24.581v-16.143l6.4492 0.09581z"></path></g></svg>
+                    <h1 class="title">{{ me.company_info.name }}</h1>
+                </div>
+            </div>
+            <div class="client-doc-name">
+                <h2 class="client-doc-doc-type">FAKTURA</h2>
+            </div>
+
+            <div class="wrapper">
+                <div class="client-doc-from client-doc-address">
+                    <h3>Från</h3>
+                    <div>
+                        <div><strong>{{ me.company_info.name }}</strong></div>
+                        <div class="company-address">
+                            Att: {{ me.contacts[0].person }}
+                            <br>
+                            {{ me.company_info.postal_address.thoroughfare }}
+                            <br>
+                            {{ me.company_info.postal_address.postalcode }} {{ me.company_info.postal_address.locality }}
+                            <br>
+                            <br>
+                            Orgnr: {{ me.company_info.orgnr }}
+                            <br>
+                            Innehar F-skatt.
+                            <br>
+                            <br>
+                            <b>Betalningsalternativ:</b>
+                            <br>
+                            <ul>
+                                <li>Bankgiro: 630-0081</li>
+                                <li>Banköverföring, utland:
+                                    <ul>
+                                        <li>BIC/SWIFT: SWEDSESS/SWEDSESSXXX</li>
+                                        <li>IBAN: SE7180000830481231654102</li>
+                                        <li>BANK: Sparbanken Alingsås, Sweden</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="client-box">
+                    <div class="client-doc-for client-doc-address">
+                        <h3>Faktura till</h3>
+                        <div>
+                            <strong>{{ client.company_info.name }}</strong>
+                            <div class="company-address">
+                                Adress: {{ [client.company_info.postal_address.co, client.company_info.postal_address.thoroughfare] | select | join(' / ') }}
+                                <br>
+                                {{ client.company_info.postal_address.postalcode }} {{ client.company_info.postal_address.locality }}
+                                <br>
+                                Org nummer: {{ client.company_info.orgnr }}<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="client-doc-details">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="label">Fakturanummer</td>
+                                    <td class="definition test-invoice-number"><strong>{{ invoice.number }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Utfärdad datum</td>
+                                    <td class="definition">{{ invoice.created }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Betalningsvillkor</td>
+                                    <td class="definition">
+                                        <span class="due-date">{{ invoice.credit }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Förfallodatum</td>
+                                    <td class="definition">
+                                        <span class="due-date">{{ invoice.due_date }}
+                                           <span class="desktop-only">
+                                           </span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Vår referens</td>
+                                    <td class="definition">{{ invoice.our_ref }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Er referens</td>
+                                    <td class="definition">{{ invoice.their_ref }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <span class="label">Ämne: </span>
+            <span class="definition">{{ invoice.subject }}</span>
+        </div>
+
+        <table class="client-doc-items">
+            <thead class="client-doc-items-header desktop-only">
+                <tr>
+                    <th class="item-type">Typ</th>
+                    <th class="item-description">Beskrivning</th>
+                    <th class="item-qty">Antal</th>
+                    <th class="item-unit-price">Enhetspris</th>
+                    <th class="item-amount">Belopp</th>
+                </tr>
+            </thead>
+            <tbody class="client-doc-rows">
+                {% for item in invoice.line_items %}
+                <tr>
+                    <td class="item-type desktop-only">{{ item.type.value }}</td>
+                    <td class="item-description">
+                        {{ item.created.strftime('%Y-%m-%d') }} ({{ item.project }}) {{ item.description }}
+                    </td>
+                    <td class="item-qty desktop-only">{{ item.nth }}</td>
+                    <td class="item-unit-price desktop-only">{{ item.unit_price // 100 }} {{ item.currency }}</td>
+                    <td class="item-amount">
+                        {{ item.netto // 100 }} {{ item.currency }}
+                        <span class="tax-column-span"></span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tbody class="client-doc-summary">
+
+                {% if invoice.discount > 0 %}
+                <tr>
+                    <td class="label" colspan="4">Rabatt ({{invoice.discount_percent}}%)</td>
+                    <td class="subtotal">-{{ invoice.discount // 100 }} {{ invoice.currency }}</td>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <td class="label" colspan="4">Netto</td>
+                    <td class="subtotal">{{ (invoice.netto_sum + invoice.deposit) // 100 }} {{ invoice.currency }}</td>
+                </tr>
+
+                {% if invoice.deposit > 0 %}
+                <tr>
+                    <td class="label" colspan="4">{{invoice.deposit_text}}</td>
+                    <td class="subtotal">-{{ invoice.deposit // 100 }} {{ invoice.currency }}</td>
+                </tr>
+
+                <tr>
+                    <td class="label" colspan="4">Netto efter avdrag</td>
+                    <td class="subtotal">{{ invoice.netto_sum // 100 }} {{ invoice.currency }}</td>
+                </tr>
+
+                {% endif %}
+
+                <tr>
+                    <td class="label first" colspan="4">
+                        <span>
+                            Moms
+                            <span class="tax-percent">(25%)</span>
+                        </span>
+                    </td>
+                    <td class="subtotal">{{ invoice.vat // 100 }} SEK</td>
+                </tr>
+                <tr class="total">
+                    <td class="label" colspan="4">Belopp att betala</td>
+                    <td id="total-amount" class="total">{{ invoice.total_sum // 100 }} {{ invoice.currency }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="client-doc-notes">
+            <h2></h2>
+            <div class="notes">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,40 @@
+[tool.poetry]
+
+name = "kontado"
+version = "0.1.0"
+description = "Time reporting and invoicing system"
+authors = ["Fredric Bergström <fredric@bobodrone.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12.0"
+black = "25.1.0"
+astroid = "^3.0.0"
+click = "^8.1.7"
+commonmark = "^0.9.1"
+dill = "^0.3.6"
+isort = "^6.0.1"
+Jinja2 = "^3.1.2"
+lazy-object-proxy = "^1.9.0"
+MarkupSafe = "^2.1.1"
+mccabe = "^0.7.0"
+mypy = "^1.15.0"
+mypy-extensions = "^1.0.0"
+packaging = "^24.2"
+pathspec = "^0.12.1"
+pdfkit = "^1.0.0"
+platformdirs = "^4.3.6"
+Pygments = "^2.14.0"
+pylint = "^3.0.3"
+PyYAML = "^6.0"
+rich = "^13.9.4"
+tomlkit = "^0.13.2"
+typer = "^0.15.2"
+typing_extensions = "^4.5.0"
+wrapt = "^1.14.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

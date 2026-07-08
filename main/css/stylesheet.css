@@ -1,0 +1,83 @@
+body {
+    font-family: "Nunito", sans-serif;
+    padding: 3rem;
+    background-color: #ffffff;
+}
+
+.logo {
+    background-color: #ed2939;
+    padding: 1.2rem 1rem;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: "Audiowide", cursive;
+    font-size: 3rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: #363636;
+    margin-bottom: 0.8rem;
+}
+
+.client-doc-address,
+.client-doc-details {
+    margin-bottom: 20px;
+}
+
+.client-doc-items {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.client-doc-items th,
+.client-doc-items td {
+    padding: 5px;
+}
+
+.client-doc-items th {
+    background: #eddeed;
+}
+
+
+.client-doc-items td {
+    border: 1px solid #909090;
+}
+
+
+.item-type {
+    width: 5%;
+    text-align: center;
+}
+
+.item-description {
+    width: 50%;
+    text-align: left;
+}
+
+.item-qty {
+    width: 5%;
+    text-align: center;
+}
+
+.item-unit-price {
+    width: 15%;
+    text-align: center;
+}
+
+.item-amount {
+    width: 25%;
+    text-align: left;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.label {
+    font-weight: bold;
+}
